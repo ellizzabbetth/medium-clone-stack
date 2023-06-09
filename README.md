@@ -38,6 +38,9 @@ https://serverspace.io/support/help/python-3-virtual-environment-on-ubuntu-22-04
 python manage.py startapp users
 
 
+http://localhost:8000/redoc/
+
+
 
 That’s a short process for debugging a Docker Compose deployment
 While this hasn’t been the most in-depth of guides on how to debug a Docker Compose-based deployment, it’s covered the essentials. To summarise, follow these steps to debug a Docker Compose-based container configuration:
