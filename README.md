@@ -1,9 +1,10 @@
 Run:
 docker compose -f local.yml up --build -d --remove-orphans
+make build
 
 Down:
 docker compose -f local.yml down
-
+make down-v
 
 Logs:
 docker compose -f local.yml logs <api_service>
@@ -13,6 +14,16 @@ localhost:8025
 
 
 docker volume inspect src_local_postgres_data
+make volume
+
+make authors-db
+-- inside psql service
+    \l
+    \q
+    \connect
+    \dt
+    \q
+
 
 To view existing db backups:
 docker compose -f local.yml exec postgres backup
