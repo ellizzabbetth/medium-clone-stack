@@ -39,7 +39,7 @@ python manage.py startapp users
 
 
 http://localhost:8000/redoc/
-
+http://localhost:8080/supersecret/
 
 
 That’s a short process for debugging a Docker Compose deployment
