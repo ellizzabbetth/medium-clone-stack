@@ -3,5 +3,6 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path("settings.ADMIN_URL", admin.site.urls),
+   # path("settings.base.ADMIN_URL", admin.site.urls),
+    #path("supersecret/", admin.site.urls),
 ]
