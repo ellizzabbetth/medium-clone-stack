@@ -46,6 +46,7 @@ RUN pip install --no-cache-dir --no-index --find-links=/wheels/ /wheels/* \
 COPY ./docker/local/django/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
 RUN chmod +x /entrypoint
+
 # This script ensures that our models are migrated and the Django server is run and static files collected.
 COPY ./docker/local/django/start /start
 RUN sed -i 's/\r$//g' /start
