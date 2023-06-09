@@ -162,7 +162,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_URLS_REGEX = r"^api/.*$"
 
-# AUTH_USER_MODEL = "users.User"
+AUTH_USER_MODEL = "users.User"
 
 # CELERY_BROKER_URL = env("CELERY_BROKER")
 # CELERY_RESULT_BACKEND = CELERY_BROKER_URL
