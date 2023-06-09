@@ -12,6 +12,8 @@ docker compose -f local.yml logs <api_service>
 Mailhog
 localhost:8025 
 
+Flowers:
+http://localhost:5555/
 
 docker volume inspect src_local_postgres_data
 make volume

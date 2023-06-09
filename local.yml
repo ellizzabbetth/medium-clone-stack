@@ -29,7 +29,7 @@ services:
         depends_on:
             - postgres
             - mailhog
-            # - redis
+            - redis
             # - es
         command: /start
         networks:
@@ -55,45 +55,46 @@ services:
         networks:
             - authors-api
 
-    # redis:
-    #     image: redis:7-alpine
-    #     networks:
-    #         - authors-api
+    redis:
+        image: redis:7-alpine
+        networks:
+            - authors-api
 
-    # celery_worker:
-    #     build:
-    #         context: .
-    #         dockerfile: ./docker/local/django/Dockerfile
-    #     command: /start-celeryworker
-    #     volumes:
-    #         - .:/app
-    #     env_file:
-    #         - ./.envs/.local/.django
-    #         - ./.envs/.local/.postgres
-    #     depends_on:
-    #         - redis
-    #         - postgres
-    #         - mailhog
-    #     networks:
-    #         - authors-api
+    celery_worker:
+        build:
+            context: .
+            dockerfile: ./docker/local/django/Dockerfile
+        command: /start-celeryworker
+        volumes:
+            - .:/app
+        env_file:
+            - ./.envs/.local/.django
+            - ./.envs/.local/.postgres
+        depends_on:
+            - redis
+            - postgres
+            - mailhog
+        networks:
+            - authors-api
 
-    # flower:
-    #     build:
-    #         context: .
-    #         dockerfile: ./docker/local/django/Dockerfile
-    #     command: /start-flower
-    #     volumes:
-    #         - flower_data:/data
-    #     env_file:
-    #         - ./.envs/.local/.django
-    #         - ./.envs/.local/.postgres
-    #     ports:
-    #         - "5555:5555"
-    #     depends_on:
-    #         - redis
-    #         - postgres
-    #     networks:
-    #         - authors-api
+    #  flower is a real time web application monitoring and administration tool for celery.
+    flower:
+        build:
+            context: .
+            dockerfile: ./docker/local/django/Dockerfile
+        command: /start-flower
+        volumes:
+            - flower_data:/data
+        env_file:
+            - ./.envs/.local/.django
+            - ./.envs/.local/.postgres
+        ports:
+            - "5555:5555"
+        depends_on:
+            - redis
+            - postgres
+        networks:
+            - authors-api
 
     nginx:
         restart: always
@@ -120,4 +121,4 @@ volumes:
     media_volume:
     local_postgres_data: {}
     local_postgres_data_backups: {}
-    # flower_data: {}
+    flower_data: {}
