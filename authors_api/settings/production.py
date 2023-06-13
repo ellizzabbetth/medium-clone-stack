@@ -35,10 +35,10 @@ CSRF_TRUSTED_ORIGINS = [""] #["https://trainingwebdev.com"]
 
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# DEFAULT_FROM_EMAIL = env(
-#     "DJANGO_DEFAULT_FROM_EMAIL",
-#     default="Authors Haven Support <support@trainingwebdev.com>",
-# )
+DEFAULT_FROM_EMAIL = env(
+    "DJANGO_DEFAULT_FROM_EMAIL",
+    default="Authors Haven Support <support@trainingwebdev.com>",
+)
 
 # SITE_NAME = "Authors Haven"
 
