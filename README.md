@@ -26,6 +26,9 @@ make authors-db
     \dt
     \q
 
+python3 -c "import secrets; print(secrets.token_urlsafe(38))"
+pip install -r requirements/local.txt
+
 
 To view existing db backups:
 docker compose -f local.yml exec postgres backup
@@ -52,3 +55,10 @@ Use docker-compose logs to inspect the logs to find out what errors are occurrin
 Fix the problem
 Restart the containers
 Lather, rinse, repeat
+
+ML NLP
+https://www.kaggle.com/general/203318
+https://www.geeksforgeeks.org/nlp-gensim-tutorial-complete-guide-for-beginners/
+https://stackabuse.com/python-for-nlp-working-with-the-gensim-library-part-1/
+https://radimrehurek.com/gensim/auto_examples/
+https://docs.aws.amazon.com/sagemaker/latest/dg/lda.html
