@@ -1,4 +1,5 @@
 from django.conf import settings
+# from authors_api.settings.base import ADMIN_URL
 from django.contrib import admin
 from django.urls import path, include
 from drf_yasg import openapi
@@ -20,6 +21,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    #path("ADMIN_URL", admin.sites.urls), # TODO
     # path("settings.ADMIN_URL", admin.site.urls),
     path("redoc/", schema_view.with_ui("redoc", cache_timeout=0)),
     path("supersecret/", admin.site.urls),
